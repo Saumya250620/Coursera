@@ -1,9 +1,10 @@
-const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'red', 'blue', 'green', 'purple', 'pink'];
-let cards = shuffle(colors.concat(colors));
+const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink'];
+let cards = [];
 let selectedCards = [];
 let score = 0;
 let timeLeft = 30;
 let gameInterval;
+let lockBoard = false;
 
 const startbtn = document.getElementById('startbtn');
 const gameContainer = document.querySelector('.game-container');
@@ -29,14 +30,16 @@ function shuffle(array){
 }
 
 function handleCardClick(event){
+    if(lockBoard) return;
     const card = event.target;
-    if(!card.classList.contains('card') || card.classList.contains('matched')){
+    if(!card.classList.contains('card') || card.classList.contains('matched') || selectedCards.includes(card)){
         return;
     }
     card.textContent = card.dataset.color;
     card.style.backgroundColor = card.dataset.color;
     selectedCards.push(card);
     if(selectedCards.length === 2){
+        lockBoard = true;
         setTimeout(checkMatch, 500);
     }
 }
@@ -55,19 +58,34 @@ function checkMatch(){
         card2.style.backgroundColor = '#ddd';
     }
     selectedCards=[];
+
+    if(score === cards.length){
+        clearInterval(gameInterval);
+        gameContainer.removeEventListener('click', handleCardClick);
+        alert('🎉 You win!');
+        startbtn.disabled = false;
+    }
+    lockBoard = false;
 }
 
 function startGame(){
-    let timeLeft = 30;
+    clearInterval(gameInterval);
+    gameContainer.addEventListener('click', handleCardClick);   // re-enable
+
+    lockBoard = false;
+    timeLeft = 30;
     startbtn.disabled = true;
+
     score = 0; // Reset score to zero
     scoreElement.textContent = `Score: ${score}`;
-    startGameTimer(timeLeft);
+
     cards = shuffle(colors.concat(colors));
     selectedCards = [];
+
     gameContainer.innerHTML = '';
     generateCards();
-    gameContainer.addEventListener('click', handleCardClick);
+
+    startGameTimer(timeLeft);
 }
 
 function startGameTimer(timeLeft){
@@ -78,11 +96,12 @@ function startGameTimer(timeLeft){
 
         if(timeLeft === 0){
             clearInterval(gameInterval);
-            let timeLeft = 30;
+            gameContainer.removeEventListener('click', handleCardClick);
             alert('Game Over!');
             startbtn.disabled = false;
         }
     }, 1000);
 }
 
+gameContainer.addEventListener('click', handleCardClick);
 startbtn.addEventListener('click', startGame);
