@@ -2,3 +2,18 @@
 
 A simple and interactive Memory Card Matching Game built using HTML, CSS, and Vanilla JavaScript.
 The game challenges players to match pairs of colored cards within a limited time.
+
+🧠 How the Game Works
+
+* Click Start / Restart to begin the game
+* Cards are shuffled randomly on every start
+* Click two cards to reveal their colors
+* If the colors match, the cards stay revealed
+* If they don’t match, they flip back after a short delay
+* Match all pairs before the timer ends to win 🎉
+
+🛠️ Technologies Used
+
+* HTML5 – Structure of the game
+* CSS3 – Styling and layout
+* JavaScript (ES6) – Game logic and interactivity
