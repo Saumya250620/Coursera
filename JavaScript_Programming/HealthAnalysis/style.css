@@ -6,55 +6,101 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* NAVBAR */
+
 nav{
-    background-color: #f0f0f0;
-    padding: 20px;
+    background-color: #eaeaea;
+    padding: 15px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-nav ul{
-    list-style-type: none;
+nav h1{
+    font-size: 20px;
 }
 
-nav ul li{
-    display: inline;
-    margin-right: 10px;
-}
-
-nav a{
+.nav-links a{
+    margin-right: 15px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
 }
 
-body{
-    font-family: Arial, sans-serif;
+.nav-links a:hover{
+    text-decoration: underline;
 }
 
-h1{
+.nav-search{
+    display: flex;
+    gap: 10px;
+}
+
+.nav-search input{
+    padding: 6px;
+    width: 180px;
+}
+
+.nav-search button{
+    padding: 6px 14px;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* ANALYSIS FORM */
+
+.analysisForm{
+    flex: 1;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.analysisForm h2{
     margin-bottom: 20px;
 }
 
-div{
-    margin-bottom: 10px;
+.analysisForm div{
+    margin-bottom: 15px;
 }
 
-label{
+.analysisForm label{
     display: inline-block;
-    width: 100px;
+    width: 120px;
+    font-weight: bold;
 }
 
-input[type= "text"],
-input[type= "number"],
-select{
+.analysisForm input[type= "text"],
+.analysisForm input[type= "number"],
+.analysisForm select{
     width: 200px;
-    padding: 5px;
+    padding: 6px;
 }
+
+.analysisForm input[type="radio"]{
+    margin-left: 10px;
+}
+
+/* BUTTONS */
 
 button{
-    padding: 7px 15px;
+    padding: 8px 16px;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -66,12 +112,89 @@ button:hover {
     background-color: #45a049;
 }
 
-h2{
-    margin-top: 30px;
+/* REPORT SECTION */
+
+#report{
+    margin-top: 15px;
+    background-color: #f9f9f9;
 }
 
-/* #report, #result{ */
-    /* padding: 10px; */
-    /* max-width: 400px; */
-    /* word-wrap: break-word; */
-/* } */
+/* SEARCH RESULT SECTION */
+
+.searchCondition{
+    flex: 1;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.searchCondition h2{
+    margin-bottom: 15px;
+}
+
+#report, #result{
+    padding: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+#result{
+    height: 400px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#result img{
+    width: 200px;
+    height: 200px;
+}
+
+/* CONTACT PAGE STYLES */
+
+.containerr{
+    justify-content: center;
+}
+
+#contactForm{
+    margin-top: 20px;
+}
+
+#contactForm div{
+    margin-bottom: 15px;
+}
+
+#contactForm label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#contactForm input,
+#contactForm textarea{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#contactForm textarea{
+    resize: vertical;
+}
+
+#contactForm button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contactForm button:hover{
+    background-color: #45a049;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <h1>Health Analysis Census</h1>
+        <div class="nav-links">
+            <a href="./index.html" id="home">Home</a>
+            <a href="./contact.html" id="contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Contact Page Content -->
+    <div class="containerr">
+        <div class="analysisForm">
+            <h2>Contact Us</h2>
+            <p>Feel free to contact us to know more about health conditions and available treatment options.</p>
+
+            <form id="contactForm">
+                <div>
+                    <label for="contactName">Name:</label>
+                    <input type="text" id="contactName" name="name" required>
+                </div>
+                <div>
+                    <label for="contactEmail">Email:</label>
+                    <input type="email" id="contactEmail" name="email" required>
+                </div>
+                <div>
+                    <label for="contactCondition">Condition:</label>
+                    <input type="text" id="contactCondition" name="condition" required>
+                </div>
+                <div>
+                    <label for="contactMessage">Message:</label>
+                    <textArea id="contactMessage" name="message" rows="5" required></textArea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("Thank you for contacting us! We will get back to you soon.");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
